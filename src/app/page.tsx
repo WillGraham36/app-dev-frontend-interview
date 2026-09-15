@@ -4,19 +4,17 @@ import { useState, type FormEvent } from "react";
 
 export default function Home() {
   const [draft, setDraft] = useState("");
-  // 1. Choose how to store the todos in state. Explain your choice first.
+  // 1. Choose how to store the todos in state. Explain your choice first
 
   function handleAdd(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = draft.trim();
     if (!text) return;
 
-    // 2. Add a new, incomplete todo using text. Keep the existing todos.
-
-    setDraft("");
+    // 2. Add a new todo
   }
 
-  // 3. Add a handler that toggles only the selected todo.
+  // 3. Add a handler that toggles the selected todo as complete / incomplete
 
   return (
     <main>
@@ -35,8 +33,7 @@ export default function Home() {
         </div>
       </form>
       <ul aria-label="Tasks">
-        {/* 2. Render your todos here. This static row is a markup example;
-            replace it with rows from state. */}
+        {/* 2. Render your todos here. A static row is provided as example, do not worry about styling */}
         <li>
           <label>
             <input type="checkbox" disabled />
