@@ -1,58 +1,62 @@
-# App Dev Club – Frontend Interview 
+# App Dev Club — Frontend Interview
 
-## Getting started
+A **15-minute** React exercise. Build a small todo list and explain your decisions.
+We care about frontend fundamentals and reasoning, not memorizing syntax.
 
-- Clone the repo to your local system
-  - Create a new branch called `firstname-lastname` with your name
-  - Then checkout to this branch
-- Install dependencies with `npm i`
-- Run the app with `npm run dev`, then go to `http://localhost:3000` to see it
-- Edit your code in `src/app/page.tsx`
+## Before the interview (outside the timer)
 
-## Main Tasks
+Use Node.js 22 LTS and npm:
 
-1. **Create a Todo List**
-   - Users should be able to **add todos** with a simple input and button
-   - Users should be able to **mark todos as complete or incomplete** using a checkbox
+```sh
+git clone https://github.com/WillGraham36/app-dev-frontend-interview.git
+cd app-dev-frontend-interview
+npm ci
+npm run dev
+```
 
-2. **Todo Counter**
-   - Show the total number of **completed** todos at the bottom of the list
+Open [localhost:3000](http://localhost:3000). Edit only **`src/app/page.jsx`**.
+The starter runs, but the example row is static and submitting does not yet add a task.
+Your interviewer can provide a running environment if setup is a problem.
+No Next.js or TypeScript knowledge is needed.
 
-## Notes
+## Your task
 
-- Focus on getting the **core functionality** working first, while creating clean, readable code
-- Don't worry about styling unless asked to
-- Walk us through your thought process as you go, we want to understand how you approach problems, not just see the final result
+1. **Explain your data model.** How will you represent a task and the collection of tasks? What belongs in React state?
+2. **Add and display tasks.** A new task starts incomplete; adding it keeps previous tasks. Replace the example row with your list.
+3. **Toggle completion.** Each checkbox marks just that task complete or incomplete.
 
-## Additional Requirements (if time allows)
+The input, form submission, blank-input check, and styling are provided.
+Two tasks may have the same text and must still work independently.
+There is no backend, persistence, delete feature, or styling task. Refreshing may reset the list.
 
-1. **Connect to a Dummy Backend**
-   - Use a local backend at **`http://localhost:5000`**
-   - On first load, **GET todos** from the backend
-   - When a new todo is created, **save it** via the backend
-   - Assume the backend will return data in this format:
+## Time guide
 
-    ### API Format
+| Minutes | Focus |
+| --- | --- |
+| 0–2 | Read the starter and explain your data model |
+| 2–11 | Implement add, render, and toggle |
+| 11–13 | Try your app and explain what you would test |
+| 13–15 | Discuss a completed count and reviewing AI-generated changes |
 
-    **GET `/todos`**
+For the count, an explanation is enough; implementation is optional.
 
-    Response (JSON):
-    ```json
-    [
-      { "id": 1, "name": "Buy groceries", "status": "incomplete" },
-      { "id": 2, "name": "Finish homework", "status": "incomplete" }
-    ]
-    ```
+## How we work during the interview
 
-    **POST `/todos`**
+- Think aloud and ask clarifying questions.
+- Do not use AI assistants, chat tools, or AI autocomplete during this exercise.
+- Documentation, ordinary editor completion, and syntax help from the interviewer are welcome.
+- If syntax blocks you, explain your intended steps; the interviewer can help translate them into code.
+- We use AI in project work. This exercise checks the fundamentals you need to understand, test, and review its output.
+- Finishing every line is not the only measure of success. Explain your choices and how you would check correctness.
 
-    Request body (JSON):
+### Quick manual check
 
-    `{ "name": "New todo", "status": "incomplete" }`
+Add two tasks with the same text. Toggle one, then toggle it back. Confirm the other
+task is unchanged. Add a third task and confirm earlier tasks remain. Try a blank task.
 
+## For interviewers
 
-    Response (JSON):
+See [INTERVIEWER.md](INTERVIEWER.md) for timing, prompts, and evaluation guidance.
+That guide is in this repository and is not a secret answer key.
 
-    `{ "id": 3, "name": "New todo", "status": "incomplete" }`
-
-
+Maintainer checks: `npm run lint`, `npm run typecheck`, and `npm run build`.
