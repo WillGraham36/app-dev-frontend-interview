@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
 export default function Home() {
   const [draft, setDraft] = useState("");
   // 1. Choose how to store the todos in state. Explain your choice first.
 
-  function handleAdd(event) {
+  function handleAdd(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = draft.trim();
     if (!text) return;
